@@ -1,28 +1,36 @@
 #include "bigint_operations.h"
 #include <stdio.h>
+#include<stdlib.h>
 
-int main() {
+int main() 
+{
     BigInt num1, num2, result;
     int choice;
 
-    initBigInt(&num1);
-    initBigInt(&num2);
     initBigInt(&result);
-
-    do {
-        printf("\nMenu:\n");
-        printf("1. Enter First Big Integer\n");
-        printf("2. Enter Second Big Integer\n");
-        printf("3. Add Big Integers\n");
-        printf("4. Subtract Big Integers\n"); // Updated menu option
-        printf("5. Display Result (Reversed)\n");
-        printf("6. Exit\n"); // Adjusted menu options
-        printf("Enter your choice: ");
+    
+    initBigInt(&num1);
+    
+    initBigInt(&num2);
+    
+    
+    do
+        {
+        printf("\nMenu for BIG INT:\n");
+        printf("1. Enter First Integer\n");
+        printf("2. Enter Second Integer\n");
+        printf("3. Add two Big Integers\n");
+        printf("4. Subtract two Big Integers\n"); 
+        printf("5. Display Result\n");
+        printf("6. Exit the program\n"); 
+        printf("Enter your choice:- ");
         scanf("%d", &choice);
 
-        while (getchar() != '\n'); // Clear the input buffer
+        while (getchar() != '\n');
 
-        switch (choice) {
+        switch (choice)
+            {
+                
             case 1:
                 printf("Enter first big integer: ");
                 char ch;
@@ -32,6 +40,7 @@ int main() {
                     }
                 }
                 break;
+                
             case 2:
                 printf("Enter second big integer: ");
                 while ((ch = getchar()) != '\n') {
@@ -40,21 +49,28 @@ int main() {
                     }
                 }
                 break;
+                
             case 3:
                 addBigInts(&num1, &num2, &result);
                 break;
+                
             case 4:
-                subtractBigInts(&num1, &num2, &result); // Perform subtraction
+                subtractBigInts(&num1, &num2, &result);
                 break;
+                
             case 5:
                 printf("Result (Reversed): ");
                 displayReversedBigInt(&result);
                 break;
+                
             case 6:
                 clearBigInt(&num1);
+                
                 clearBigInt(&num2);
+                
                 clearBigInt(&result);
                 break;
+                
             default:
                 printf("Invalid choice. Please try again.\n");
         }
